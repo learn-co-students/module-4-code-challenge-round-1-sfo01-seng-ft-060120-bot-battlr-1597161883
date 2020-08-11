@@ -1,13 +1,16 @@
 import React, { Component } from "react";
 import BotCollection from './BotCollection'
 import YourBotArmy from './YourBotArmy'
+import BotSpecs from '../components/BotSpecs'
 
 class BotsPage extends Component {
   //start here with your code for step one
 
   state = {
     allBots: [],
-    myBots: []
+    myBots: [],
+    clicked: false,
+    currentBot: {}
   }
 
   componentDidMount(){
@@ -44,11 +47,33 @@ class BotsPage extends Component {
     })
   }
 
+  toggleView = (bot) => {
+    this.setState({
+      clicked: !this.state.clicked,
+      currentBot: bot
+    })
+  }
+
+  renderBotCollection = () => {
+    return <BotCollection 
+              allBots={this.state.allBots} 
+              addBot={this.addBot} 
+              deleteBot={this.deleteBot} 
+              toggleView={this.toggleView}/>
+  }
+
+  renderOneBot = () => {
+    return <BotSpecs 
+              bot={this.state.currentBot} 
+              addBot={this.addBot} 
+              toggleView={this.toggleView}/>
+  }
+
   render() {
     return (
       <div>
         <YourBotArmy myBots={this.state.myBots} removeBot={this.removeBot} deleteBot={this.deleteBot}/>
-        <BotCollection allBots={this.state.allBots} addBot={this.addBot} deleteBot={this.deleteBot}/>
+        {this.state.clicked ? this.renderOneBot() : this.renderBotCollection()}
       </div>
     );
   }
