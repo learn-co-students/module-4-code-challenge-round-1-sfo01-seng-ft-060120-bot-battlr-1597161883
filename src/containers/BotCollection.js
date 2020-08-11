@@ -43,7 +43,6 @@ class BotCollection extends Component {
   }
 
   render() {
-    console.log(this.props.allBots)
     return (
       <div className="ui four column grid">
         <SortBar handleFilter={this.handleFilter}/>
