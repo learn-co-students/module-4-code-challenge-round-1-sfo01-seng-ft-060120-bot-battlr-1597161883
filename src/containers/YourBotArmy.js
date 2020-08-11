@@ -4,7 +4,7 @@ class YourBotArmy extends Component {
   //your bot army code here...
   generateMine = () => {
     return this.props.myBots.map((myBot, index) => {
-      return <BotCard key={index} bot={myBot} addOrRemoveBots={this.props.removeBots}/>
+      return <BotCard key={index} bot={myBot} addOrRemoveBots={this.props.removeBots} removeFromMain={this.props.removeFromMain}/>
     })
   }
   render() {

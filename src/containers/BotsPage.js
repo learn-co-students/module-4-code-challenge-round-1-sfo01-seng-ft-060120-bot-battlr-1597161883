@@ -6,8 +6,10 @@ class BotsPage extends Component {
 
   render() {
     return (
-      <div><YourBotArmy myBots={this.props.myBots} removeBots={this.props.removeBots}/><BotCollection bots={this.props.bots} addBots={this.props.addBots} removeFromMain={this.props.removeFromMain}/></div>
-      // <div></div>
+      <div>
+        <YourBotArmy myBots={this.props.myBots} removeBots={this.props.removeBots} removeFromMain={this.props.removeFromMain}/>
+        <BotCollection bots={this.props.bots} addBots={this.props.addBots} removeFromMain={this.props.removeFromMain}/>
+      </div>
     )
   }
 }

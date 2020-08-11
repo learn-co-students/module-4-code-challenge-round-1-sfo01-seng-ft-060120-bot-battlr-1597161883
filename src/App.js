@@ -32,9 +32,10 @@ class App extends Component {
 
   removeFromMain = (bot) => {
     console.log('main page')
-    if(this.state.bots.includes(bot)){
+    if(this.state.bots.includes(bot) && this.state.myBots.includes(bot)){
       let removed = this.state.bots.filter(item => item !== bot)
-      this.setState({bots: removed})
+      let removed2 = this.state.myBots.filter(item => item !== bot)
+      this.setState({bots: removed, myBots: removed2})
     }
   }
 
